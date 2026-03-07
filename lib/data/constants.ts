@@ -118,9 +118,9 @@ export const KNOB_DEFINITIONS: KnobDefinition[] = [
     description: 'Chunk size determines how many characters each piece contains. This balances precision with completeness in your retrieval results.',
     stage: 'ingestion',
     options: [
-      { value: 'small', label: 'Small (50-100)' },
-      { value: 'medium', label: 'Medium (200-300)' },
-      { value: 'large', label: 'Large (500-800)' }
+      { value: 'small', label: 'Small' },
+      { value: 'medium', label: 'Medium' },
+      { value: 'large', label: 'Large' }
     ],
     default: 'medium'
   },

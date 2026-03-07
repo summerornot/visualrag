@@ -69,7 +69,7 @@ export const CONSEQUENCES: ConsequenceMap = {
 
   chunkSize: {
     small: {
-      mechanism: 'Chunks contain 50-100 tokens (~40-80 words). Very granular retrieval units.',
+      mechanism: 'Very small, granular chunks that focus on specific pieces of information.',
       impactOnAnswers: (domain, queryTypes) => {
         const hasLookup = queryTypes.includes('lookup');
         const hasSummarization = queryTypes.includes('summarization');
@@ -84,20 +84,20 @@ export const CONSEQUENCES: ConsequenceMap = {
         return base + 'Good for precise fact lookup, but may miss surrounding context that helps understand the answer.';
       },
       systemTradeoffs: (domain, queryTypes) => {
-        return 'Retrieving 5 small chunks means ~375 tokens sent to the LLM. Faster and cheaper than larger chunks, but you may need to retrieve more chunks to get complete information.';
+        return 'Smaller chunks mean less data sent to the LLM per retrieval, making responses faster and cheaper. However, you may need to retrieve more chunks to gather complete information, which can offset these benefits.';
       }
     },
     medium: {
-      mechanism: 'Chunks contain 200-300 tokens (~150-250 words). Balanced granularity.',
+      mechanism: 'Moderately-sized chunks that balance specificity with context.',
       impactOnAnswers: (domain, queryTypes) => {
         return 'Look at the visualization above - chunks are sized to capture complete thoughts without too much extra information. Works well for most question types. This is the most common choice.';
       },
       systemTradeoffs: (domain, queryTypes) => {
-        return 'Retrieving 5 medium chunks means ~1,250 tokens sent to the LLM. Balanced between having enough context and not overwhelming the LLM with irrelevant information.';
+        return 'Medium chunks strike a balance between retrieving enough context and keeping the LLM focused. This size typically provides complete thoughts without overwhelming the system with unnecessary information.';
       }
     },
     large: {
-      mechanism: 'Chunks contain 500-800 tokens (~400-650 words). Large context per chunk.',
+      mechanism: 'Large chunks that preserve substantial context and complete thoughts.',
       impactOnAnswers: (domain, queryTypes) => {
         const hasLookup = queryTypes.includes('lookup');
         const hasSummarization = queryTypes.includes('summarization');
@@ -112,7 +112,7 @@ export const CONSEQUENCES: ConsequenceMap = {
         return base + 'Good for understanding broad topics and context, but includes more irrelevant information than smaller chunks.';
       },
       systemTradeoffs: (domain, queryTypes) => {
-        return 'Retrieving 5 large chunks means ~3,250 tokens sent to the LLM. Provides rich context but uses more of your LLM\'s context window and costs more to process.';
+        return 'Larger chunks provide rich context and comprehensive information per retrieval. However, they consume more of the LLM\'s processing capacity and increase costs, while potentially including irrelevant details.';
       }
     }
   },

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronDown, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronDown, ChevronRight, MessageCircle } from 'lucide-react';
 import { DomainId, QueryTypeId, KnobId, KnobState, KnobValue } from '@/lib/types';
 import { DOMAINS, DEFAULT_KNOBS, KNOB_DEFINITIONS, PIPELINE_STAGES } from '@/lib/data/constants';
 import { CONSEQUENCES } from '@/lib/data/consequences';
@@ -276,6 +276,23 @@ export default function PipelineExplorer({ domain, queryTypes, onBack }: Pipelin
                 </div>
               );
             })}
+
+            {/* Disclaimer and Feedback Section */}
+            <div className="px-2 space-y-3">
+              <p className="text-xs text-base-content/60 leading-relaxed">
+                <strong className="text-base-content/80">Note:</strong> This tool covers common RAG strategies to help you build intuition. It doesn't include all possible configurations.
+              </p>
+              
+              <a
+                href="https://github.com/summerornot/visualrag/issues"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs text-primary hover:text-primary/80 transition-colors group"
+              >
+                <MessageCircle size={14} className="group-hover:scale-110 transition-transform" />
+                <span className="underline">Have feedback? Let me know</span>
+              </a>
+            </div>
           </div>
 
           {/* Mobile: Single Column with Stages + Content */}
