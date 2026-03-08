@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Scale, MessageSquare, Heart, DollarSign, Linkedin } from 'lucide-react';
+import { Scale, MessageSquare, Heart, DollarSign } from 'lucide-react';
 import { DomainId } from '@/lib/types';
 import { DOMAINS } from '@/lib/data/constants';
 
@@ -21,13 +21,17 @@ export default function DomainSelection({ onSelect }: DomainSelectionProps) {
     <div className="min-h-screen bg-base-100 p-3 md:p-6 relative">
       {/* LinkedIn Link - Top Right */}
       <a
-        href="https://www.linkedin.com/in/yourprofile"
+        href="https://www.linkedin.com/in/shreyabisht/"
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute top-4 right-4 md:top-6 md:right-6 text-base-content/60 hover:text-primary transition-colors z-20"
+        className="absolute top-4 right-4 md:top-6 md:right-6 hover:opacity-80 transition-opacity z-20"
         aria-label="LinkedIn Profile"
       >
-        <Linkedin size={20} className="md:w-6 md:h-6" />
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
+          alt="LinkedIn"
+          className="w-5 h-5 md:w-6 md:h-6"
+        />
       </a>
 
       <div className="max-w-5xl mx-auto">
