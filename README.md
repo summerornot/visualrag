@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Visual RAG Explorer
+
+An interactive educational tool for Product Managers to build intuition about how RAG (Retrieval-Augmented Generation) design decisions shape system behavior and product outcomes.
+
+🔗 **Live Demo:** [https://visualragtool.vercel.app/](https://visualragtool.vercel.app/)
+
+## What is Visual RAG?
+
+Visual RAG is a hands-on exploration tool that helps non-technical stakeholders understand the tradeoffs and impacts of different RAG system configurations. Instead of reading documentation, you can **see** and **interact** with how different strategies affect retrieval quality, system performance, and answer accuracy.
+
+## Who is this for?
+
+Product Managers, Designers, and anyone working with RAG systems who wants to understand how it works under the hood.
+
+## Tech Stack
+
+- **Framework:** Next.js 14 with TypeScript
+- **Styling:** Tailwind CSS + DaisyUI
 
 ## Getting Started
 
-First, run the development server:
+### Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── components/
+│   ├── steps/              # Main flow screens
+│   ├── visualizations/     # Interactive visual components
+│   └── RangeSlider.tsx     # Reusable slider component
+├── lib/
+│   ├── data/
+│   │   ├── constants.ts    # Pipeline stages, knob definitions
+│   │   ├── consequences.ts # Mechanism explanations and impacts
+│   │   └── interactions.ts # Cross-knob interaction effects
+│   └── types.ts            # TypeScript interfaces
+└── app/                    # Next.js app router
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This tool covers common RAG strategies to help build intuition. It doesn't include all possible configurations.
 
-## Deploy on Vercel
+**Have feedback or suggestions?** [Open an issue](https://github.com/summerornot/visualrag/issues)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Connect
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Created by [Shreya Bisht](https://www.linkedin.com/in/shreyabisht/)
